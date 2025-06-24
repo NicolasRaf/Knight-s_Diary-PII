@@ -1,0 +1,540 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Trajan+Pro:wght@400&display=swap');
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo principal com fundo do Hollow Knight e gradientes/partículas */
+body {
+    font-family: 'Trajan Pro', serif;
+    background: 
+        url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Tmpir895US6xfbMLltUDPNs6W6GdzL.png') center center / cover no-repeat fixed,
+        radial-gradient(circle at 20% 80%, rgba(30, 30, 60, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(40, 40, 80, 0.4) 0%, transparent 50%),
+        linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    color: #e8e8e8;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden; /* Evita scroll horizontal */
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    justify-content: flex-start; /* Alinha ao topo */
+}
+
+/* Overlay escuro para melhor legibilidade, fixo */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.073);
+    pointer-events: none; /* Permite interagir com elementos abaixo */
+    z-index: 2;
+}
+
+/* Partículas flutuantes adicionais com animação, fixas */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.2), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.1), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.2), transparent),
+        radial-gradient(2px 2px at 160px 30px, rgba(255,255,255,0.1), transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: sparkle 20s linear infinite;
+    pointer-events: none; /* Permite interagir com elementos abaixo */
+    z-index: 3;
+}
+
+/* Animação para as partículas */
+@keyframes sparkle {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-100px); }
+}
+
+/* Container principal para limitar a largura do conteúdo */
+.container {
+    max-width: 1000px;
+    width: 100%; /* Ocupa 100% da largura disponível dentro do max-width */
+    margin: 0 auto;
+    position: relative;
+    z-index: 10; /* Garante que o conteúdo fique acima dos overlays */
+}
+
+/* Título principal estilo Hollow Knight */
+h1 {
+    font-family: 'Trajan Pro', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    color: #d4d4d4;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.9);
+    position: relative;
+    padding-top: 2rem; /* Espaçamento superior para o título */
+}
+
+/* Ornamento decorativo do título (linha horizontal) */
+h1::after {
+    content: '';
+    display: block;
+    width: 400px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #d4d4d4, transparent);
+    margin: 1rem auto 3rem; /* Margem inferior aumentada */
+    position: relative;
+    box-shadow: 0 0 10px rgba(212, 212, 212, 0.5);
+}
+
+/* Ornamento decorativo do título (símbolo) */
+h1::before {
+    content: '⚜'; /* Símbolo unicode de ornamento */
+    position: absolute;
+    bottom: -2.5rem; /* Posição abaixo da linha */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    color: #d4d4d4;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 0 1rem;
+    border-radius: 50%;
+    text-shadow: 0 0 10px rgba(212, 212, 212, 0.7);
+}
+
+/* Seção de input estilo Hollow Knight (com vidro fosco) */
+#input-section {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(212, 212, 212, 0.4);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    backdrop-filter: blur(15px); /* Efeito de vidro fosco */
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    width: 100%; /* Garante que ocupe a largura total do container */
+}
+
+/* Linha decorativa no topo da seção de input */
+#input-section::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 20px;
+    right: 20px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(212, 212, 212, 0.6), transparent);
+    box-shadow: 0 0 5px rgba(212, 212, 212, 0.3);
+}
+
+/* Estilo para labels dentro da seção de input */
+#input-section label {
+    display: block;
+    font-family: 'Trajan Pro', serif;
+    font-weight: 400;
+    color: #d4d4d4;
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+/* Estilo para o campo de input de texto */
+#input-section input[type="text"] {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(212, 212, 212, 0.5);
+    border-radius: 4px;
+    color: #e8e8e8;
+    font-family: 'Trajan Pro', serif;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Efeito de foco no input */
+#input-section input[type="text"]:focus {
+    outline: none;
+    border-color: #d4d4d4;
+    box-shadow: 0 0 15px rgba(212, 212, 212, 0.4), inset 0 2px 5px rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.95);
+}
+
+/* Estilo para o placeholder do input */
+#input-section input[type="text"]::placeholder {
+    color: rgba(232, 232, 232, 0.4);
+    font-style: italic;
+}
+
+/* Mensagem de erro */
+#errorMessage {
+    color: #ff6b6b !important;
+    font-family: 'Trajan Pro', serif;
+    font-weight: 400;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    display: block; /* Garante que ocupe sua própria linha */
+}
+
+/* Botão adicionar estilo Hollow Knight */
+#adicionarBtn {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-family: 'Trajan Pro', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    background: rgba(212, 212, 212, 0.1);
+    color: #d4d4d4;
+    border: 2px solid rgba(212, 212, 212, 0.5);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 3rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+/* Efeito hover no botão adicionar */
+#adicionarBtn:hover {
+    background: rgba(212, 212, 212, 0.2);
+    border-color: #d4d4d4;
+    box-shadow: 0 0 20px rgba(212, 212, 212, 0.4), 0 4px 15px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Tabela transformada em save slots */
+#tabelaTarefas {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1rem; /* Espaçamento entre os "slots" */
+}
+
+/* Esconder cabeçalho da tabela, pois cada linha será um save slot completo */
+#tabelaTarefas thead {
+    display: none;
+}
+
+/* Cada linha como um save slot individual */
+#tabelaTarefas tbody tr {
+    display: flex; /* Usar flexbox para melhor controle do layout interno */
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(212, 212, 212, 0.4);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    position: relative;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(15px);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    align-items: center; /* Centraliza itens verticalmente */
+    padding: 1rem 0; /* Ajuste de padding para acomodar ornamentos e conteúdo */
+}
+
+/* Efeito hover no save slot */
+#tabelaTarefas tbody tr:hover {
+    border-color: rgba(212, 212, 212, 0.7);
+    box-shadow: 0 0 25px rgba(212, 212, 212, 0.2), 0 4px 20px rgba(0, 0, 0, 0.5);
+    transform: translateX(5px); /* Efeito de deslizar levemente */
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Ornamento lateral esquerdo do save slot (SVG) */
+#tabelaTarefas tbody tr::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 60px; /* Largura do ornamento */
+    background: 
+        linear-gradient(135deg, rgba(212, 212, 212, 0.15) 0%, transparent 100%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 100'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' style='stop-color:%23d4d4d4;stop-opacity:0.3' /%3E%3Cstop offset='100%25' style='stop-color:%23d4d4d4;stop-opacity:0' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 10 C30 0 60 10 60 30 C60 50 30 60 0 70 L0 10 Z' fill='url(%23grad1)' /%3E%3Cpath d='M0 30 C30 20 60 30 60 50 C60 70 30 80 0 90 L0 30 Z' fill='url(%23grad1)' /%3E%3C/svg%3E") center center / cover no-repeat; /* SVG mais abstrato */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-right: 1px solid rgba(212, 212, 212, 0.3);
+    pointer-events: none; /* Não interfere com cliques */
+}
+
+/* Estilo base para cada célula (coluna) do save slot */
+#tabelaTarefas tbody tr td {
+    padding: 0.5rem 1rem; /* Padding ajustado */
+    border: none;
+    color: #e8e8e8;
+    font-family: 'Trajan Pro', serif;
+    font-weight: 400;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    display: flex; /* Garante que os itens dentro do TD possam ser alinhados */
+    align-items: center; /* Alinha o conteúdo verticalmente */
+    flex-shrink: 0; /* Evita que os itens encolham */
+}
+
+/* ID da tarefa (número do save) */
+#tabelaTarefas tbody tr td:nth-child(1) {
+    width: 90px; /* Largura para o ID e espaço do ornamento */
+    text-align: center;
+    font-size: 2.2rem; /* Tamanho maior para o ID */
+    color: #d4d4d4;
+    padding-left: 70px; /* Espaço para o ornamento */
+    justify-content: center; /* Centraliza o número */
+}
+
+/* Descrição da tarefa (nome do save) */
+#tabelaTarefas tbody tr td:nth-child(2) {
+    flex-grow: 1; /* Ocupa o espaço restante */
+    font-size: 1.25rem; /* Um pouco maior */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-left: 1rem; /* Padding à esquerda */
+    align-items: center;
+}
+
+/* Ícone de conclusão na descrição */
+#tabelaTarefas tbody tr td:nth-child(2) .completed-icon {
+    margin-right: 0.5rem;
+    color: #90ee90; /* Cor verde para o ícone */
+    font-size: 1.2em; /* Tamanho do ícone relativo ao texto */
+    display: flex;
+    align-items: center;
+}
+
+/* Data de início */
+#tabelaTarefas tbody tr td:nth-child(3) {
+    width: 150px;
+    font-size: 0.9rem;
+    color: rgba(232, 232, 232, 0.7);
+    text-transform: uppercase;
+}
+
+/* Data de conclusão / Status */
+#tabelaTarefas tbody tr td:nth-child(4) {
+    width: 200px;
+    font-size: 0.9rem;
+    color: rgba(232, 232, 232, 0.7);
+    text-transform: uppercase;
+}
+
+/* Ações (botões) */
+#tabelaTarefas tbody tr td:nth-child(5) {
+    width: 100px; /* Largura ajustada para os ícones */
+    text-align: right;
+    padding-right: 1.5rem;
+    display: flex;
+    justify-content: flex-end; /* Alinha botões à direita */
+    gap: 0.5rem; /* Espaçamento entre os botões */
+}
+
+/* Botões de ação estilo Hollow Knight (ícones) */
+.action-btn {
+    width: 36px; /* Tamanho fixo para botões de ícone */
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(212, 212, 212, 0.5);
+    border-radius: 50%; /* Botões redondos */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    color: #d4d4d4; /* Cor dos ícones */
+}
+
+.action-btn svg {
+    width: 18px; /* Tamanho dos ícones SVG */
+    height: 18px;
+    fill: currentColor; /* Usa a cor do texto do botão */
+}
+
+/* Botão de concluir */
+.concluirBtn {
+    background: rgba(100, 200, 100, 0.1);
+    border-color: rgba(144, 238, 144, 0.5);
+}
+
+.concluirBtn:hover {
+    background: rgba(100, 200, 100, 0.2);
+    border-color: #90ee90;
+    box-shadow: 0 0 15px rgba(144, 238, 144, 0.4);
+    transform: translateY(-1px);
+}
+
+.concluirBtn:disabled {
+    background: rgba(100, 100, 100, 0.1);
+    color: #666;
+    border-color: rgba(100, 100, 100, 0.5);
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* Botão de excluir */
+.excluirBtn {
+    background: rgba(200, 100, 100, 0.1);
+    border-color: rgba(255, 107, 107, 0.5);
+}
+
+.excluirBtn:hover {
+    background: rgba(200, 100, 100, 0.2);
+    border-color: #ff6b6b;
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.4);
+    transform: translateY(-1px);
+}
+
+/* Tarefa concluída */
+.completed-task {
+    opacity: 0.7; /* Suavemente mais transparente */
+    background: rgba(0, 0, 0, 0.85) !important;
+}
+
+.completed-task td:nth-child(2) {
+    text-decoration: none; /* Remove line-through, o ícone já indica */
+    color: rgba(232, 232, 232, 0.6);
+}
+
+.completed-task td:nth-child(4) {
+    color: #90ee90; /* Cor verde para "Concluída" */
+    font-weight: 400;
+}
+
+/* Mensagem quando não há tarefas */
+#noTasksMessage {
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgba(232, 232, 232, 0.6);
+    font-style: italic;
+    margin-top: 2rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(212, 212, 212, 0.3);
+    border-radius: 8px;
+    width: 100%;
+}
+
+/* Animação de entrada para os save slots */
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#tabelaTarefas tbody tr {
+    animation: slideInFromLeft 0.5s ease-out;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(212, 212, 212, 0.5);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 212, 212, 0.7);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+    
+    h1::after {
+        width: 250px;
+    }
+    
+    #input-section {
+        padding: 1.5rem;
+    }
+    
+    #tabelaTarefas tbody tr {
+        flex-wrap: wrap; /* Permite que os itens quebrem linha */
+        padding: 0.5rem 0; /* Reduz padding vertical */
+    }
+    
+    #tabelaTarefas tbody tr td {
+        width: 100% !important; /* Ocupa largura total */
+        padding: 0.5rem 1rem;
+        text-align: left !important;
+        justify-content: flex-start; /* Alinha à esquerda */
+    }
+    
+    #tabelaTarefas tbody tr td:nth-child(1) {
+        padding-left: 70px;
+        font-size: 1.8rem;
+        text-align: left; /* Garante alinhamento à esquerda mesmo com padding */
+    }
+    
+    #tabelaTarefas tbody tr td:nth-child(5) {
+        justify-content: flex-start; /* Alinha botões à esquerda */
+        padding-top: 1rem;
+    }
+    
+    .action-btn {
+        width: 40px;
+        height: 40px;
+    }
+    .action-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+    
+    h1::after {
+        width: 200px;
+    }
+    
+    #tabelaTarefas tbody tr::before {
+        width: 40px; /* Reduz a largura do ornamento */
+    }
+    
+    #tabelaTarefas tbody tr td:nth-child(1) {
+        padding-left: 50px; /* Ajusta padding para o ornamento menor */
+        font-size: 1.5rem;
+    }
+}

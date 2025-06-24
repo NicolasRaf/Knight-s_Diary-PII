@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Tarefas: Diário do Cavaleiro</title>
+    <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Diário do Cavaleiro</h1>
+        <div id="input-section">
+            <label for="descricaoTarefa">Escreva uma nova memória:</label>
+            <input type="text" id="descricaoTarefa" placeholder="Ex: Explorar o Bosque da Névoa">
+            <label id="errorMessage"></label>
+        </div>
+        <button id="adicionarBtn">Registrar Memória</button>
+        
+        <table id="tabelaTarefas">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Descrição</th>
+                    <th>Data de Início</th>
+                    <th>Data de Conclusão</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Tarefas serão adicionadas aqui pelo JavaScript -->
+            </tbody>
+        </table>
+        <div id="noTasksMessage">Nenhuma memória registrada ainda.</div>
+    </div>
+    <script src="src/script.js"></script>
+</body>
+</html>
