@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciamento de Tarefas: Diário do Cavaleiro</title>
+     <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <title> Diário do Cavaleiro </title>
     <link rel="stylesheet" href="src/style.css">
 </head>
 <body>
+    <div class="video-background">
+        <video autoplay loop muted playsinline>
+            <source src="src/godHome.mp4" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
+    </div>
+
     <div class="container">
         <h1>Diário do Cavaleiro</h1>
         <div id="input-section">
             <label for="descricaoTarefa">Escreva uma nova memória:</label>
-            <input type="text" id="descricaoTarefa" placeholder="Ex: Explorar o Bosque da Névoa">
+            <input type="text" id="descricaoTarefa" placeholder="Ex: Explorar Hollownest">
             <label id="errorMessage"></label>
         </div>
         <button id="adicionarBtn">Registrar Memória</button>
@@ -32,6 +40,7 @@
         </table>
         <div id="noTasksMessage">Nenhuma memória registrada ainda.</div>
     </div>
+
     <script src="src/script.js"></script>
 </body>
 </html>
