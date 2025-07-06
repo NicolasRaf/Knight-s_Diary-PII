@@ -2,7 +2,9 @@
 
 Este projeto é uma aplicação web simples de __lista de tarefas__, reimaginada com a estética sombria e cativante do jogo __Hollow Knight__. Transforme suas tarefas diárias em missões dignas de um Cavaleiro, acompanhando seu progresso em um diário visualmente inspirado nos arquivos de save do jogo.
 
-Salve sua jornada⚔️[___Clique aqui___](https://nicolasraf.github.io/Knight-s_Diary-PII/)
+Salve sua jornada⚔️ [___Clique aqui!___](https://nicolasraf.github.io/Knight-s_Diary-PII/)
+
+Vídeo do Site▶️ [___Assita!___](https://youtu.be/77_JVff0ql8)
 
 ## ✨ Recursos
 
