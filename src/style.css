@@ -1,13 +1,35 @@
+/* ============================================= */
+/* 1. FONTES E RESET GERAL              */
+/* ============================================= */
+
 @import url('https://fonts.googleapis.com/css2?family=Trajan+Pro:wght@400&display=swap');
 
-/* Reset básico */
+/* Reset básico para todos os elementos */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Vídeo de fundo */
+
+/* ============================================= */
+/* 2. ESTRUTURA PRINCIPAL E FUNDO         */
+/* ============================================= */
+
+body {
+    font-family: 'Trajan Pro', serif;
+    background-color: #000;
+    color: #e8e8e8;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
 .video-background {
     position: fixed;
     top: 0;
@@ -24,21 +46,6 @@
     object-fit: cover;
 }
 
-/* Corpo principal */
-body {
-    font-family: 'Trajan Pro', serif;
-    background-color: #000;
-    color: #e8e8e8;
-    min-height: 100vh;
-    position: relative;
-    overflow-x: hidden;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-}
-
 /* Overlay suave sobre o vídeo */
 body::after {
     content: '';
@@ -52,7 +59,6 @@ body::after {
     z-index: -1;
 }
 
-/* Container principal */
 .container {
     max-width: 1000px;
     width: 100%;
@@ -61,7 +67,12 @@ body::after {
     z-index: 10;
 }
 
-/* Título principal */
+
+/* ============================================= */
+/* 3. COMPONENTES DE INTERFACE (UI)       */
+/* ============================================= */
+
+/* --- Título Principal --- */
 h1 {
     font-family: 'Trajan Pro', serif;
     font-size: 3rem;
@@ -93,46 +104,31 @@ h1::before {
     left: 50%;
     transform: translateX(-50%);
     font-size: 1.5rem;
-    color: #d4d4d4;
-    background: rgba(0, 0, 0, 0.8);
+    color: #fff7b0;
     padding: 0 1rem;
     border-radius: 50%;
     text-shadow: 0 0 10px rgba(212, 212, 212, 0.7);
 }
 
-/* Seção de input */
+/* --- Seção de Adicionar Tarefa --- */
 #input-section {
     background: rgba(0, 0, 0, 0.8);
     border: 2px solid rgba(212, 212, 212, 0.4);
     border-radius: 8px;
     padding: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     backdrop-filter: blur(15px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
     width: 100%;
 }
 
-#input-section::before {
-    content: '';
-    position: absolute;
-    top: -1px;
-    left: 20px;
-    right: 20px;
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(212, 212, 212, 0.6), transparent);
-    box-shadow: 0 0 5px rgba(212, 212, 212, 0.3);
-}
-
 #input-section label {
     display: block;
-    font-family: 'Trajan Pro', serif;
-    font-weight: 400;
     color: #d4d4d4;
     margin-bottom: 0.8rem;
     font-size: 1rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 #input-section input[type="text"] {
@@ -145,39 +141,26 @@ h1::before {
     color: #e8e8e8;
     font-family: 'Trajan Pro', serif;
     transition: all 0.3s ease;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 #input-section input[type="text"]:focus {
     outline: none;
     border-color: #d4d4d4;
-    box-shadow: 0 0 15px rgba(212, 212, 212, 0.4), inset 0 2px 5px rgba(0, 0, 0, 0.5);
-    background: rgba(0, 0, 0, 0.95);
-}
-
-#input-section input[type="text"]::placeholder {
-    color: rgba(232, 232, 232, 0.4);
-    font-style: italic;
+    box-shadow: 0 0 15px rgba(212, 212, 212, 0.4);
 }
 
 #errorMessage {
     color: #ff6b6b !important;
-    font-family: 'Trajan Pro', serif;
-    font-weight: 400;
     margin-top: 0.5rem;
     font-size: 0.9rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
     display: block;
-    min-height: 1em; /* Garante que o layout não pule quando a msg aparece */
+    min-height: 1em; /* Evita pulo de layout */
 }
 
-/* Botão adicionar */
 #adicionarBtn {
     padding: 1rem 2rem;
     width: 100%;
-    font-family: 'Trajan Pro', serif;
     font-size: 1.1rem;
-    font-weight: 400;
     background: rgba(212, 212, 212, 0.1);
     color: #d4d4d4;
     border: 2px solid rgba(212, 212, 212, 0.5);
@@ -187,21 +170,58 @@ h1::before {
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-top: 1rem;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 #adicionarBtn:hover {
     background: rgba(212, 212, 212, 0.2);
     border-color: #d4d4d4;
-    box-shadow: 0 0 20px rgba(212, 212, 212, 0.4), 0 4px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 20px rgba(212, 212, 212, 0.4);
     transform: translateY(-2px);
 }
 
-/* ======================================================= */
-/* =========== SEÇÃO DA TABELA (CORRIGIDA) =============== */
-/* ======================================================= */
+/* --- Filtros --- */
+#filter-section {
+    font-family: 'Trajan Pro', serif;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.filter-btn {
+    padding: 0.75rem 1.5rem;
+    font-family: 'Trajan Pro', serif;
+    font-size: 0.9rem;
+    color: rgba(212, 212, 212, 0.7);
+    background: transparent;
+    border: 2px solid rgba(212, 212, 212, 0.4);
+    margin-top: 3rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.filter-btn:not(.active):hover {
+    color: #d4d4d4;
+    border-color: rgba(212, 212, 212, 0.8);
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    color: #ffffff;
+    border-color: #d4d4d4;
+    background: rgba(212, 212, 212, 0.1);
+    box-shadow: 0 0 15px rgba(212, 212, 212, 0.3);
+    cursor: default;
+}
+
+
+/* ============================================= */
+/* 4. TABELA DE MEMÓRIAS              */
+/* ============================================= */
 
 #tabelaTarefas {
     width: 100%;
@@ -209,30 +229,28 @@ h1::before {
     border-spacing: 0 1rem;
 }
 
+/* Esconde o cabeçalho original da tabela */
 #tabelaTarefas thead {
     display: none;
 }
 
-/* Linha da tabela (CORRIGIDA) */
 #tabelaTarefas tbody tr {
     background: rgba(0, 0, 0, 0.7);
     border: 1px solid rgba(212, 212, 212, 0.4);
     border-radius: 4px;
     position: relative;
     transition: all 0.3s ease;
-    /* overflow: hidden; FOI REMOVIDO PARA A LINHA CRESCER */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     animation: slideInFromLeft 0.5s ease-out;
+    cursor: grab;
 }
 
 #tabelaTarefas tbody tr:hover {
     border-color: rgba(212, 212, 212, 0.7);
-    box-shadow: 0 0 25px rgba(212, 212, 212, 0.2), 0 4px 20px rgba(0, 0, 0, 0.5);
     transform: translateX(5px);
     background: rgba(0, 0, 0, 0.8);
 }
 
-/* Ornamento lateral do slot */
+/* Ornamento da linha */
 #tabelaTarefas tbody tr::before {
     content: '';
     position: absolute;
@@ -245,19 +263,14 @@ h1::before {
     pointer-events: none;
 }
 
-/* Células da tabela */
 #tabelaTarefas tbody tr td {
     padding: 1rem;
     border: none;
-    color: #e8e8e8;
-    font-family: 'Trajan Pro', serif;
-    font-weight: 400;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
     vertical-align: middle;
 }
 
-/* Coluna 1: ID */
-#tabelaTarefas tbody tr td:nth-child(1) {
+/* Colunas específicas */
+#tabelaTarefas tbody tr td:nth-child(1) { /* ID */
     width: 90px;
     text-align: center;
     font-size: 2.2rem;
@@ -265,60 +278,39 @@ h1::before {
     padding-left: 80px;
 }
 
-/* Coluna 2: Descrição */
-/* Coluna 2: Descrição */
-#tabelaTarefas tbody tr td:nth-child(2) {
+#tabelaTarefas tbody tr td:nth-child(2) { /* Descrição */
     font-size: 1.25rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    word-wrap: break-word;    /* Quebra a palavra se ela for muito longa */
-    word-break: break-word;   /* Garante a quebra em vários cenários */
-    white-space: normal;      /* Garante que o texto possa fluir para múltiplas linhas */
-    line-height: 1.4;         /* Melhora a legibilidade de textos com múltiplas linhas */
+    word-break: break-word;
+    line-height: 1.4;
 }
 
-/* Coluna 3: Data de início */
-#tabelaTarefas tbody tr td:nth-child(3) {
+#tabelaTarefas tbody tr td:nth-child(3) { /* Data de Início */
     width: 150px;
     font-size: 0.9rem;
     color: rgba(232, 232, 232, 0.7);
-    text-transform: uppercase;
     text-align: center;
 }
 
-/* Coluna 4: Data de conclusão/Status */
-#tabelaTarefas tbody tr td:nth-child(4) {
+#tabelaTarefas tbody tr td:nth-child(4) { /* Data de Conclusão */
     width: 200px;
     font-size: 0.9rem;
     color: rgba(232, 232, 232, 0.7);
-    text-transform: uppercase;
     text-align: center;
 }
 
-/* Coluna 5: Ações */
-#tabelaTarefas tbody tr td:nth-child(5) {
+#tabelaTarefas tbody tr td:nth-child(5) { /* Ações */
     width: 120px;
     padding-right: 1.5rem;
 }
 
-/* Container dos botões de ação */
-.action-buttons-container {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.5rem;
-}
 
-/* ======================================================= */
-/* ============== ESTILOS GERAIS (RESTO) ================= */
-/* ======================================================= */
+/* ============================================= */
+/* 5. BOTÕES DE AÇÃO E ESTADOS           */
+/* ============================================= */
 
-.completed-icon svg {
-    width: 1em;
-    height: 1em;
-    vertical-align: middle;
-    margin-right: 0.5rem;
-}
-
+/* Base para todos os botões de ação circulares */
 .action-btn {
     width: 36px;
     height: 36px;
@@ -329,8 +321,6 @@ h1::before {
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.2s ease;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     color: #d4d4d4;
     background: transparent;
 }
@@ -341,69 +331,110 @@ h1::before {
     fill: currentColor;
 }
 
+.action-buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+/* Botões específicos */
 .concluirBtn {
     background: rgba(100, 200, 100, 0.1);
     border-color: rgba(144, 238, 144, 0.5);
 }
-
 .concluirBtn:hover {
     background: rgba(100, 200, 100, 0.2);
     border-color: #90ee90;
     box-shadow: 0 0 15px rgba(144, 238, 144, 0.4);
-    transform: translateY(-1px);
-}
-
-.concluirBtn:disabled {
-    background: rgba(100, 100, 100, 0.1);
-    color: #666;
-    border-color: rgba(100, 100, 100, 0.5);
-    cursor: not-allowed;
-    opacity: 0.5;
 }
 
 .excluirBtn {
     background: rgba(200, 100, 100, 0.1);
     border-color: rgba(255, 107, 107, 0.5);
 }
-
 .excluirBtn:hover {
     background: rgba(200, 100, 100, 0.2);
     border-color: #ff6b6b;
     box-shadow: 0 0 15px rgba(255, 107, 107, 0.4);
-    transform: translateY(-1px);
 }
 
 .reabrirBtn {
     background: rgba(100, 150, 255, 0.1);
     border-color: rgba(100, 150, 255, 0.5);
     font-size: 1.2rem;
-    line-height: 1;
 }
-
 .reabrirBtn:hover {
     background: rgba(100, 150, 255, 0.2);
     border-color: #6495ED;
     box-shadow: 0 0 15px rgba(100, 150, 255, 0.4);
-    transform: translateY(-1px);
 }
 
+.editarBtn {
+    background: rgba(100, 180, 220, 0.1);
+    border-color: rgba(100, 180, 220, 0.5);
+}
+.editarBtn:hover {
+    background: rgba(100, 180, 220, 0.2);
+    border-color: #64b4dc;
+}
+
+.detalhesBtn {
+    background: rgba(218, 165, 32, 0.1);
+    border-color: rgba(218, 165, 32, 0.5);
+    font-size: 1.2rem;
+}
+.detalhesBtn:hover {
+    background: rgba(218, 165, 32, 0.2);
+    border-color: #daa520;
+    box-shadow: 0 0 15px rgba(218, 165, 32, 0.4);
+}
+
+/* Estados da Tarefa */
 .completed-task {
-    opacity: 0.7;
+    opacity: 0.5;
     background: rgba(0, 0, 0, 0.85) !important;
 }
-
-.completed-task td:nth-child(2) {
-    color: rgba(232, 232, 232, 0.6);
-}
-
 .completed-task td:nth-child(4) {
     color: #90ee90;
-    font-weight: 400;
 }
 
-.hidden {
-    display: none !important;
+tr.editing .editarBtn {
+    border-color: rgba(255, 210, 64, 0.815);
 }
+tr.editing .editarBtn:hover {
+    border-color: #ffffff;
+    box-shadow: 0 0 15px rgba(255, 210, 64, 0.815);
+}
+
+.edit-input {
+    width: 100%;
+    padding: 0.5rem;
+    margin: -0.5rem;
+    font-family: 'Trajan Pro', serif;
+    font-size: inherit;
+    color: #e8e8e8;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-bottom: 2px solid rgba(212, 212, 212, 0.6);
+    outline: none;
+}
+.edit-input:focus {
+    border-bottom-color: #d4d4d4;
+}
+
+/* Feedback de Arrastar e Soltar */
+#tabelaTarefas tbody tr.arrastando {
+    opacity: 0.5;
+    background: #333 !important;
+}
+#tabelaTarefas tbody tr:active {
+    cursor: grabbing;
+}
+
+
+/* ============================================= */
+/* 6. MODAIS (JANELAS)              */
+/* ============================================= */
 
 .modal-overlay {
     position: fixed;
@@ -429,19 +460,46 @@ h1::before {
     max-width: 450px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
     text-align: center;
-    font-family: 'Trajan Pro', serif;
 }
 
 .modal-content p {
     font-size: 1.2rem;
-    color: #e8e8e8;
-    margin: 0;
-    margin-bottom: 2rem;
     line-height: 1.5;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-    overflow-wrap: break-word;
+    margin-bottom: 2rem;
 }
 
+/* Modal de Detalhes */
+.modal-content-detalhes {
+    max-width: 700px;
+    text-align: left;
+}
+.modal-content-detalhes h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(212, 212, 212, 0.3);
+}
+
+.modal-textarea {
+    width: 100%;
+    height: 250px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(212, 212, 212, 0.4);
+    border-radius: 4px;
+    color: #e8e8e8;
+    font-family: sans-serif; /* Fonte legível para texto longo */
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 1rem;
+    resize: vertical;
+    margin-bottom: 1.5rem;
+}
+.modal-textarea:focus {
+    outline: none;
+    border-color: #d4d4d4;
+}
+
+/* Botões da Modal */
 .modal-buttons {
     display: flex;
     justify-content: center;
@@ -450,7 +508,6 @@ h1::before {
 
 .modal-btn {
     padding: 0.8rem 1.5rem;
-    font-family: 'Trajan Pro', serif;
     font-size: 1rem;
     border-radius: 4px;
     cursor: pointer;
@@ -465,40 +522,58 @@ h1::before {
     color: #ff6b6b;
     border-color: rgba(255, 107, 107, 0.5);
 }
-
 .modal-btn-confirm:hover {
     background: rgba(200, 100, 100, 0.2);
     border-color: #ff6b6b;
-    box-shadow: 0 0 15px rgba(255, 107, 107, 0.4);
 }
 
 .modal-btn-cancel {
     color: #d4d4d4;
     border-color: rgba(212, 212, 212, 0.5);
 }
-
 .modal-btn-cancel:hover {
     background: rgba(212, 212, 212, 0.2);
     border-color: #d4d4d4;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.modal-btn-save {
+    color: #90ee90;
+    border-color: rgba(144, 238, 144, 0.5);
+    width: 100%;
+}
+.modal-btn-save:hover {
+    background: rgba(100, 200, 100, 0.2);
+    border-color: #90ee90;
 }
 
+
+/* ============================================= */
+/* 7. UTILITÁRIOS E ANIMAÇÕES            */
+/* ============================================= */
+
+/* Usada pelo JS para esconder/mostrar itens */
+.hidden {
+    display: none !important;
+}
+
+/* Mensagem de lista vazia */
 #noTasksMessage {
     text-align: center;
     font-size: 1.2rem;
     color: rgba(232, 232, 232, 0.6);
     font-style: italic;
     margin-top: 2rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
     padding: 1rem;
     background: rgba(0, 0, 0, 0.7);
     border: 1px solid rgba(212, 212, 212, 0.3);
     border-radius: 8px;
     width: 100%;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes slideInFromLeft {
@@ -512,28 +587,26 @@ h1::before {
     }
 }
 
+/* Scrollbar customizada */
 ::-webkit-scrollbar {
     width: 8px;
 }
-
 ::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.3);
 }
-
 ::-webkit-scrollbar-thumb {
     background: rgba(212, 212, 212, 0.5);
     border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(212, 212, 212, 0.7);
 }
 
 
+/* ============================================= */
+/* 8. RESPONSIVIDADE (MEDIA QUERIES)        */
+/* ============================================= */
 
-/* ======================================================= */
-/* ================== RESPONSIVIDADE ===================== */
-/* ======================================================= */
 @media (max-width: 768px) {
     body {
         padding: 1rem;
@@ -543,7 +616,6 @@ h1::before {
         font-size: 2rem;
         letter-spacing: 2px;
     }
-
     h1::after {
         width: 250px;
     }
@@ -551,64 +623,51 @@ h1::before {
     #input-section {
         padding: 1.5rem;
     }
+    
+    #filter-section {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    .filter-btn {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.8rem;
+        flex-grow: 1;
+        text-align: center;
+    }
 
-    /* Ajusta a linha da tabela para ser um container flexível */
+    /* Layout flexível para a tabela em telas menores */
     #tabelaTarefas tbody tr {
-        display: flex;       /* NOVO: Usa flexbox para melhor controle */
-        flex-wrap: wrap;     /* NOVO: Permite que os itens quebrem para a próxima linha */
+        display: flex;
+        flex-wrap: wrap;
         padding: 0;
-        position: relative;  /* Garante que o ::before se posicione corretamente */
-        padding-left: 60px;  /* NOVO: Adiciona espaço à esquerda para o ornamento */
+        position: relative;
+        padding-left: 60px;
     }
     
-    /* O ornamento continua o mesmo, mas agora funciona com o padding da linha */
     #tabelaTarefas tbody tr::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
         width: 60px;
-        background: linear-gradient(135deg, rgba(212, 212, 212, 0.15) 0%, transparent 100%);
-        border-right: 1px solid rgba(212, 212, 212, 0.3);
-        pointer-events: none;
     }
 
-    /* Remove o padding individual e ajusta a largura */
     #tabelaTarefas tbody tr td {
         display: block;
-        width: 100% !important; /* Garante que ocupe a largura total do container flex */
+        width: 100% !important;
         text-align: left !important;
-        padding: 0.25rem 1rem; /* Ajusta o padding vertical para ficar mais compacto */
-        box-sizing: border-box; /* Garante que o padding não afete a largura */
-    }
-
-    /* Remove paddings específicos que não são mais necessários */
-    #tabelaTarefas tbody tr td:nth-child(1),
-    #tabelaTarefas tbody tr td:nth-child(2),
-    #tabelaTarefas tbody tr td:nth-child(3),
-    #tabelaTarefas tbody tr td:nth-child(4),
-    #tabelaTarefas tbody tr td:nth-child(5) {
-        padding-left: 0; /* REMOVIDO: Não precisa mais de padding-left individual */
+        padding: 0.25rem 1rem;
+        box-sizing: border-box;
+        padding-left: 0;
     }
     
-    /* Ajustes finos de espaçamento e fonte */
     #tabelaTarefas tbody tr td:nth-child(1) {
         padding-top: 1rem;
         font-size: 1.8rem;
     }
-
     #tabelaTarefas tbody tr td:nth-child(2) {
         font-size: 1.1rem;
     }
-
     #tabelaTarefas tbody tr td:nth-child(3),
     #tabelaTarefas tbody tr td:nth-child(4) {
         font-size: 0.8rem;
-        color: rgba(232, 232, 232, 0.6);
     }
-
-    /* Posiciona os botões */
     #tabelaTarefas tbody tr td:nth-child(5) {
         padding-top: 0.8rem;
         padding-bottom: 1rem;
@@ -622,18 +681,14 @@ h1::before {
 @media (max-width: 480px) {
     h1 {
         font-size: 1.5rem;
-        letter-spacing: 1px;
     }
-
     h1::after {
         width: 200px;
     }
 
-    /* Ajusta o padding e a largura do ornamento para telas bem pequenas */
     #tabelaTarefas tbody tr {
         padding-left: 50px; 
     }
-
     #tabelaTarefas tbody tr::before {
         width: 50px;
     }

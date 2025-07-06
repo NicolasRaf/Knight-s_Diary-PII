@@ -24,6 +24,11 @@
         </div>
         <button id="adicionarBtn">Registrar Memória</button>
         
+        <div id="filter-section">
+            <button class="filter-btn active" data-filter="all">Todas</button>
+            <button class="filter-btn" data-filter="pending">Em Andamento</button>
+            <button class="filter-btn" data-filter="completed">Concluídas</button>
+        </div>
         <table id="tabelaTarefas">
             <thead>
                 <tr>
@@ -34,7 +39,7 @@
                     <th>Ações</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="lista-memorias">
                 <!-- Tarefas serão adicionadas aqui pelo JavaScript -->
             </tbody>
         </table>
